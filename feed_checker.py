@@ -2,9 +2,16 @@ import feedparser
 from datetime import datetime, timedelta
 
 def check_activity(feed_dict, length_of_time):
+    """Checks RSS feeds for activity within a certain interval of time
+
+    Arguments:
+    feed_dict -- dict keyed by company name and contains a list of feeds as a value
+    length_of_time -- the amount of days to set the interval being checked
+    """
     none_in_interval = []
     for company, feeds in feed_dict.items():
         for feed in feeds:
+            # feedparser will take URL's, filepaths or raw strings
             loaded_feed = feedparser.parse(feed)
             try:
                 latest_entry = loaded_feed.entries[0]
