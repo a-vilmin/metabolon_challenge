@@ -15,7 +15,7 @@ def check_activity(feed_dict, length_of_time):
             loaded_feed = feedparser.parse(feed)
             try:
                 latest_entry = loaded_feed.entries[0]
-            except KeyError:
+            except IndexError:
                 print("There was an error loading " + feed)
                 continue
 

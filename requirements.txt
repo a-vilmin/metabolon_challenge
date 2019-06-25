@@ -1,1 +1,4 @@
 feedparser==5.2.1
+freezegun==0.3.12
+python-dateutil==2.8.0
+six==1.12.0
